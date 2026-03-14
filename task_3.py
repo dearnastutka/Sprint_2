@@ -22,9 +22,14 @@ class PointsForMeters:
         
 class TotalPoints(PointsForPlace, PointsForMeters):
     def get_total_points(self,meters, place):
-        if PointsForPlace.get_points_for_place(place) and PointsForMeters.get_points_for_meters(meters):
-            total = PointsForPlace.get_points_for_place(place) + PointsForMeters.get_points_for_meters(meters)  
-            return total
+        place_points = self.get_points_for_place(place)
+        meters_points = self.get_points_for_meters(meters)
+        if place_points == None:     #если вернулось значение None - ошибка, то переменной присваивается 0
+            place_points = 0
+        if meters_points == None:
+            meters_points = 0   
+        total = place_points + meters_points
+        return total
 
 points_for_place = PointsForPlace()
 print(points_for_place.get_points_for_place(10))
