@@ -7,18 +7,18 @@ class Movies:
 
 class Comedy(Movies):
     def __init__ (self):
-         Movies.__init__(self)
+         super().__init__()
     
     def add_movie(self, movie):
-        Movies.add_movie(self, movie)
+        super().add_movie(movie)
         return f"Комедии: {self.movies}"
 
 class Drama(Movies):
     def __init__ (self):
-         Movies.__init__(self)
+         super().__init__()
 
     def add_movie(self, movie):
-        Movies.add_movie(self, movie)
+        super().add_movie(movie)
         return f"Драмы: {self.movies}"
     
 comedy_1 = Comedy()
